@@ -1,0 +1,77 @@
+<div class="modal fade lang_m24_banner" id="register_modal" role="dialog" style="overflow-y: scroll;" >
+  <div class="modal-dialog" style="max-height: 100%; margin-top: 50px; margin-bottom:50px;">
+    <div class="modal-content">
+      <button type="button" #closebutton class="close" data-dismiss="modal">&times;</button>
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" novalidate>
+          <div class="m24_language_box m24_cover">
+            <h1>Register</h1>
+          </div>
+
+          <div class="login_form_wrapper">
+              <div class="icon_form comments_form">
+                <input  type="text" formControlName="username" class="form-control"  placeholder="Enter your username*" maxlength="10">
+                <i class="fas fa-user"></i>
+              </div>
+
+              <div style="color: red" class="alert alert-danger" role="alert" *ngIf="(submitted && registerForm.get('username').errors)">
+                <span style="color: red" *ngIf="registerForm.get('username').hasError('required')">User name is required</span>
+                <span style="color: red" *ngIf="registerForm.get('username').hasError('minlength')">User name must min 6 digits.</span>
+                <span style="color: red" *ngIf="registerForm.get('username').hasError('pattern')">User name cannot contain special characters.</span>
+              </div>
+              <div style="color: red" class="alert alert-danger" role="alert" *ngIf="checkSuccess.messagedb === 'dbusername'">
+                <span style="color: red" >{{checkSuccess.message}}</span>
+              </div>
+
+              <div class="icon_form comments_form">
+                <input type="text" formControlName="phone" class="form-control" name="full_name" placeholder="Enter your phone*">
+                <i class="fas fa-phone"></i>
+              </div>
+
+              <div style="color: red" class="alert alert-danger" role="alert" *ngIf="submitted && registerForm.get('phone').errors">
+                <span style="color: red" *ngIf="registerForm.get('phone').hasError('required')">Phone is required</span>
+                <span style="color: red" *ngIf="registerForm.get('phone').hasError('pattern')">Phone must start with 0 followed by 9 or 10 digits.</span>
+              </div>
+              <div style="color: red" class="alert alert-danger" role="alert" *ngIf="checkSuccess.messagedb === 'dbphone'">
+                <span style="color: red" >{{checkSuccess.message}}</span>
+              </div>
+              <div formGroupName="pwGroup">
+                <div class="icon_form comments_form">
+                  <input type="password" formControlName="password" class="form-control" placeholder="Enter Password *">
+                  <i class="fas fa-lock"></i>
+                </div>
+                <div class="alert alert-danger" role="alert"  *ngIf="submitted && registerForm.get('pwGroup').get('password').errors" >
+                  <div style="color: red" *ngIf="registerForm.get('pwGroup').get('password').hasError('required')">Password is required</div>
+                  <div style="color: red" *ngIf="registerForm.get('pwGroup').get('password').hasError('minlength')">Password must min 6 digits.</div>
+                </div>
+                <div class="icon_form comments_form">
+                  <input type="password" formControlName="confirmPassword" class="form-control" placeholder="confirm password*">
+                  <i class="fas fa-lock"></i>
+                </div>
+                <div style="color: red" class="alert alert-danger" role="alert" *ngIf="registerForm.hasError('passwordNotMatch', ['pwGroup']) &&
+                  submitted">
+                  Password does not match!
+                </div>
+              </div>
+
+            </div>
+          <div class="lang_apply_btn_wrapper m24_cover">
+            <div  class="lang_apply_btn">
+              <button (click)="onSubmit()" class="button_like_a" type="submit"> register</button>
+            </div>
+            <div class="cancel_wrapper">
+              <a routerLink="/" class="" data-dismiss="modal">cancel</a>
+            </div>
+            <div class="dont_have_account m24_cover">
+              <p>Have an acount ? <a href="#login_modal" #showlogin data-toggle="modal" data-dismiss="modal">login here</a></p>
+            </div>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

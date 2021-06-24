@@ -1,0 +1,65 @@
+<!--<div class="container overflow-hidden">-->
+<!--  <div class="row gx-5" >-->
+<!--    <div class="col" *ngFor="let song of songs; index as i">-->
+<!--      <div class="p-3 border bg-light">-->
+<!--        <div >-->
+<!--          <img src="{{song.imageUrl}}" alt="img">-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<!--<div class="lest_news_cont_wrapper float_left" style="background: chocolate">-->
+<!--<div class="container overflow-hidden">-->
+<!--  <div class="row gx-5">-->
+<!--    <div class="col" *ngFor="let song of songs">-->
+<!--      <img class="img-thumbnail" src="{{song.imageUrl}}" alt="img">-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<!--</div>-->
+
+
+
+
+<div class="treanding_songs_wrapper treanding_index_wrapper m24_cover">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="m24_heading_wrapper">
+          <h1>new songs </h1>
+        </div>
+      </div>
+      <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+        <div class="treanding_song_slider" style=" width: 1155px; height: auto" >
+          <div class="owl-carousel owl-theme" >
+            <div class="owl-item cloned" style="width: 206px; margin-right: 20px;" *ngFor="let song of songs; index as i">
+              <div class="item">
+                <div class="treanding_slider_main_box m24_cover">
+                  <img src="{{song.imageUrl}}" alt="img">
+                  <div class="m24_treanding_box_overlay">
+                    <div class="m24_tranding_box_overlay"></div>
+                    <div class="m24_tranding_more_icon">
+                      <i class="flaticon-menu"></i>
+                    </div>
+                    <div class="tranding_play_icon">
+                      <a [routerLink]="['/user/songs/comments',song.id]">
+                        <i class="flaticon-play-button"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+

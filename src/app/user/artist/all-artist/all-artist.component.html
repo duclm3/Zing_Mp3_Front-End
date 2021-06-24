@@ -1,0 +1,59 @@
+<div class="indx_title_main_wrapper">
+  <div class="title_img_overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="indx_title_left_wrapper m24_cover">
+          <h2>All Artists</h2>
+
+          <ul>
+            <li><a routerLink="/">Home</a></li>
+<!--            <li>Artists</li>-->
+          </ul>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="treanding_songs_wrapper m24_cover">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="m24_heading_wrapper">
+<!--          <h1>All Artists</h1>-->
+        </div>
+      </div>
+      <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12" *ngFor="let artist of artists| slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+        <div class="treanding_slider_main_box top_artist_wrapper_new m24_cover">
+          <a routerLink="/user/detail/artists/{{artist.id}}"><img src="{{artist.avatar}}" alt="img"></a>
+
+          <div class="m24_treanding_box_overlay">
+            <div class="m24_tranding_box_overlay"></div>
+            <div class="tranding_play_icon various_concert_icon">
+              <a routerLink="/user/detail/artists/{{artist.id}}">
+                <i class="flaticon-play-button"></i>
+              </a>
+            </div>
+          </div>
+          <div class="various_song_playlist">
+            <p><a routerLink="/user/detail/artists/{{artist.id}}">{{artist.nameArtist}}</a></p>
+
+          </div>
+        </div>
+      </div>
+      <div class="blog_pagination_section m24_cover">
+        <ul>
+          <li>
+            <a href="#" class="prev"> <i class="flaticon-left-arrow"></i> </a>
+          </li>
+          <li>
+            <a href="#" class="next"><i class="flaticon-right-arrow"></i></a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>

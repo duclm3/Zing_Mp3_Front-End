@@ -1,0 +1,88 @@
+<div class="indx_title_main_wrapper">
+  <div class="title_img_overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="indx_title_left_wrapper m24_cover">
+          <h2>Artist</h2>
+          <ul>
+            <li><a routerLink="/">Home</a>  /</li> <li><a routerLink="/user/allartists">All Artists</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="blog_category_wrapper blog_single_wrapper m24_cover">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="artist_wrapper_content m24_cover">
+          <img src="{{artist.avatar}}" class="img-responsive" alt="img">
+          <div class="artist_wrapper_text">
+            <div class="artist_wrapper_left">
+              <h1>{{artist.nameArtist}}</h1>
+              <span>Description: {{artist.description}}</span><br>
+              <span>Likes: {{artist.likes}}</span><br>
+              <span>Tracks: {{songs.length}}</span>
+              <div class="artist_btn m24_cover">
+                <div class="lang_apply_btn">
+                  <a (click)="getInforSong(songs[0])" ><i  class="flaticon-play-button"></i> play all</a>
+                </div>
+                <div class="cancel_wrapper">
+                  <a routerLink="/user/artists/comments/{{artist.id}}" ><i class="fas fa-comment"></i>Comment</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="m24_main_wrapper">
+  <div class="album_inner_list auti m24_cover">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-12">
+          <div class="album_list_wrapper2">
+            <div class="album_list_wrapper album_list_wrapper_shop">
+              <ul class="album_list_name m24_cover">
+                <li>#</li>
+                <li class="song_title_width">Song Title</li>
+                <li class="song_title_width">Genre</li>
+                <li class="text-center">like</li>
+                <li class="text-center">view</li>
+                <li style="text-align: right">comment</li>
+              </ul>
+              <ul class="album_inner_list_padding" *ngFor="let song of songs| slice: (page-1) * pageSize : (page-1) * pageSize + pageSize ; index as i">
+                <li><a style="cursor:pointer;" (click)="getInforSong(song)"><span class="play_no">{{i + 1}}</span><span class="play_hover"><i
+                  class="flaticon-play-button"></i></span></a></li>
+                <li class="song_title_width">
+                  <div class="top_song_artist_wrapper">
+                    <img src="{{song.imageUrl}}" alt="img">
+                    <div class="top_song_artist_contnt">
+                      <h1><a>{{song.nameSong}}</a></h1>
+                      <p class="various_artist_text"><a>{{song.author}}</a></p>
+                    </div>
+                  </div>
+                </li>
+                <li class="song_title_width top_song_artist_contnt"><a >{{song.genre.name}}</a></li>
+                <li class="text-center "><a>{{song?.likes}}</a></li>
+                <li class="text-center"><a>{{song?.views}}</a></li>
+                <li><a  [routerLink]="['/user/songs/comments/',song.id]" > <i class="fa fa-comment" ></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin: auto">
+          <ngb-pagination [collectionSize]="songs.length" [(page)]="page" [maxSize]="5" [rotate]="true"
+                          [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

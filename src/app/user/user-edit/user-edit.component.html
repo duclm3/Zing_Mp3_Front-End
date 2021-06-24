@@ -1,0 +1,113 @@
+<div class="indx_title_main_wrapper">
+  <div class="title_img_overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="indx_title_left_wrapper m24_cover">
+          <h2>Profile</h2>
+          <ul>
+            <li><a routerLink="">Home</a></li>
+<!--            <li>Update Profile</li>-->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-content col-9" style="margin: 0 auto;" >
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+          <form [formGroup]="editForm" (ngSubmit)="onUpdate()">
+            <div class="m24_language_box m24_cover">
+              <h1>Update Profile</h1>
+            </div>
+            <div class="login_form_wrapper">
+              <label >User name</label>
+              <div class="icon_form comments_form">
+                <input type="text" formControlName="username" class="form-control" readonly>
+                <i class="fas fa-user"></i>
+              </div>
+
+              <div style="color: red" class="alert alert-danger" role="alert" *ngIf="editForm.get('username').errors && submitted">
+                <span style="color: red" *ngIf="editForm.get('username').hasError('required')">User name is required</span>
+                <span style="color: red" *ngIf="editForm.get('username').hasError('minlength')">User name must min 6 digits.</span>
+              </div>
+<!--              <div style="color: red" class="alert alert-danger" role="alert" *ngIf="checkSuccess.messagedb === 'dbusername'">-->
+<!--                <span style="color: red" >{{checkSuccess.message}}</span>-->
+<!--              </div>-->
+
+              <label >Address</label>
+              <div class="icon_form comments_form">
+                <input type="text" formControlName="address" class="form-control">
+                <i class="fas fa-address-card"></i>
+              </div>
+
+              <div style="color: red" class="alert alert-danger" role="alert" *ngIf="submitted && editForm.get('address').errors">
+                <span style="color: red" *ngIf="editForm.get('address').hasError('required')">Address is required</span>
+              </div>
+<!--              <div style="color: red" class="alert alert-danger" role="alert" *ngIf="checkSuccess.messagedb === 'dbphone'">-->
+<!--                <span style="color: red" >{{checkSuccess.message}}</span>-->
+<!--              </div>-->
+
+              <label >Email</label>
+              <div class="icon_form comments_form">
+                <input type="text" formControlName="email" class="form-control">
+                <i class="fas fa-envelope"></i>
+              </div>
+
+              <div style="color: red" class="alert alert-danger" role="alert" *ngIf="submitted && editForm.get('email').errors">
+                <span style="color: red" *ngIf="editForm.get('email').hasError('required')">Email is required</span>
+                <span style="color: red" *ngIf="editForm.get('email').hasError('email')">Email is invalid</span>
+              </div>
+<!--              <div style="color: red" class="alert alert-danger" role="alert" *ngIf="checkSuccess.messagedb === 'dbphone'">-->
+<!--                <span style="color: red" >{{checkSuccess.message}}</span>-->
+<!--              </div>-->
+
+
+              <label >Phone</label>
+              <div class="icon_form comments_form">
+                <input type="text" formControlName="phone" class="form-control">
+                <i class="fas fa-phone"></i>
+              </div>
+
+              <div style="color: red" class="alert alert-danger" role="alert" *ngIf="submitted && editForm.get('phone').errors">
+                <span style="color: red" *ngIf="editForm.get('phone').hasError('required')">Phone is required</span>
+                <span style="color: red" *ngIf="editForm.get('phone').hasError('pattern')">Phone invalid.</span>
+              </div>
+<!--              <div style="color: red" class="alert alert-danger" role="alert" *ngIf="checkSuccess.messagedb === 'dbphone'">-->
+<!--                <span style="color: red" >{{checkSuccess.message}}</span>-->
+<!--              </div>-->
+
+              <label >Avatar</label>
+              <div class="icon_form comments_form">
+                <app-image (giveURLtoCreate)="onChangeAvatar($event)"></app-image>
+<!--                <input type="text" formControlName="avatar" class="form-control" name="full_name">-->
+                <i class="fas fa-image"></i>
+              </div>
+
+              <div style="color: red" class="alert alert-danger" role="alert" *ngIf="submitted && editForm.get('avatar').errors">
+                <span style="color: red" *ngIf="editForm.get('avatar').hasError('required')">Avatar is required</span>
+              </div>
+<!--              <div style="color: red" class="alert alert-danger" role="alert" *ngIf="checkSuccess.messagedb === 'dbphone'">-->
+<!--                <span style="color: red" >{{checkSuccess.message}}</span>-->
+<!--              </div>-->
+
+
+
+            </div>
+
+            <div class="lang_apply_btn_wrapper m24_cover">
+              <div class="lang_apply_btn">
+                <button class="button_like_a" type="submit" >update</button>
+              </div>
+              <div class="cancel_wrapper">
+                <a routerLink="/" class="" data-dismiss="modal" style="margin-right: 20px">cancel</a>
+              </div>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+

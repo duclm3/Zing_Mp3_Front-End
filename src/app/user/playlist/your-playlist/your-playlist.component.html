@@ -1,0 +1,83 @@
+<div class="indx_title_main_wrapper">
+  <div class="title_img_overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="indx_title_left_wrapper m24_cover">
+          <h2>My Playlists</h2>
+          <ul>
+            <li><a routerLink="/">Home</a></li>
+            <!--            <li>album</li>-->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row" style="text-align: center">
+    <div class="navi_searchbar_wrapper col-md-12 col-lg-6" style="height: 71px">
+      <i class="flaticon-magnifying-glass" style="margin-left: 70px"></i>
+      <input type="text" placeholder="Search for Playlist" style="margin-left: 60px; width: 500px"/>
+    </div>
+    <div class="navi_searchbar_wrapper col-md-12 col-lg-6">
+      <a [routerLink]="['/user/playlists/create']"><i class="flaticon-playlist-3"
+                                                      style="margin-left: 300px; color: chocolate; width: 100px">
+        Create</i></a>
+    </div>
+  </div>
+</div>
+<div class="album_inner_list auti m24_cover">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-12">
+        <div class="album_list_wrapper2">
+          <div class="album_list_wrapper album_list_wrapper_shop">
+            <ul class="album_list_name m24_cover">
+              <li>#</li>
+              <li class="song_title_width">Image Playlist</li>
+              <li class="text-center">Playlists</li>
+              <li class="text-center" style="color: white">White</li>
+              <li class="text-center">Like</li>
+              <li class="text-center">List Song</li>
+              <li class="text-center">Edit</li>
+              <li class="text-center">remove</li>
+            </ul>
+            <ul class="album_inner_list_padding" *ngFor="let p of myPlaylist ; index as i">
+              <li>{{i + 1}}</li>
+              <li class="song_title_width">
+                <div class="top_song_artist_wrapper">
+                  <a [routerLink]="['/user/playlistSong/',p.id]"><img src="{{p.image}}" alt="img"></a>
+
+
+                </div>
+
+              </li>
+              <li class="text-center"><a [routerLink]="['/user/playlistSong/',p.id]">{{p.namePlaylist}}</a></li>
+              <li class="text-center" style="color: white">White</li>
+              <li class="text-center"><a href="#">{{p.likes}}</a></li>
+              <li class="text-center"><a [routerLink]="['/user/playlistSong/',p.id]">{{p.songs.length}} Tracks</a></li>
+              <li class="text-center top_song_artist_playlist">
+                <div class="m24_tranding_more_icon">
+                </div>
+                <a style="text-decoration: none" [routerLink]="['/user/playlists/edit',p.id]">Edit</a>
+              </li>
+              <li class="text-center"><a type="button" (click)="deletePlaylist(p.id)"><i
+                class="fas fa-times-circle"></i></a></li>
+            </ul>
+          </div>
+          <div class="lang_apply_btn home_btn m24_cover">
+            <ul>
+              <li>
+                <a href="#">view all</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--  <button mat-raised-button color="primary" (click)="previous()">Previous</button>-->
+  <!--  <button mat-raised-button color="primary" (click)="next()">Next</button>-->
+</div>

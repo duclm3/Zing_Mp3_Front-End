@@ -1,0 +1,41 @@
+<div class="song_heading_wrapper m24_cover">
+  <div class="m24_heading_wrapper">
+    <h1>Top songs </h1>
+
+  </div>
+  <div class="relaese_viewall_wrapper" style="padding-top: 18px;">
+    <a routerLink="/user/allsongs"> view all <i class="flaticon-right-arrow"></i></a>
+  </div>
+  <div class="top_songs_list m24_cover" *ngFor="let song of songs; index as i" >
+    <div class="top_songs_list_left row">
+      <div class="treanding_slider_main_box top_lis_left_content">
+        <div class="top_songs_list0img">
+          <img src="{{song.imageUrl}}" alt="img" height="50px" style="margin-left: 10px">
+          <a (click)="getInforSong(song)">
+          <div class="m24_treanding_box_overlay">
+            <div class="m24_tranding_box_overlay" style="cursor: pointer">
+            </div>
+          </div>
+          </a>
+        </div>
+        <div class="release_content_artist top_list_content_artist">
+          <p>{{song.nameSong}}</p>
+          <p class="various_artist_text"><a>{{song?.artist?.nameArtist}}</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="top_songs_list_right">
+      <div class="top_list_tract_view">
+        <p><i class="fa fa-eye"></i> {{song.views}}</p>
+      </div>
+      <div class="top_list_tract_view">
+        <p><i class="fa fa-thumbs-up"></i>&nbsp;{{song.likes}}</p>
+      </div>
+      <div class="top_song_list_picks">
+        <div class="m24_tranding_more_icon">
+          <a  [routerLink]="['/user/songs/comments/',song.id]"> <i class="fa fa-comment" style="font-size: 20px;color: #fd7e14;"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

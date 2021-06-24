@@ -1,0 +1,73 @@
+<div class="indx_title_main_wrapper">
+  <div class="title_img_overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="indx_title_left_wrapper m24_cover">
+          <h2>My Songs</h2>
+          <ul>
+            <li><a routerLink="/">Home</a>  /</li>
+            <li>My Songs</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row" style="text-align: center">
+    <div class="navi_searchbar_wrapper col-md-12 col-lg-6" style="height: 71px">
+      <i class="flaticon-magnifying-glass" style="margin-left: 70px"></i>
+      <input type="text" id="justAnotherInputBox" placeholder="Search for Songs" style="margin-left: 60px; width: 500px"/>
+    </div>
+    <div class="navi_searchbar_wrapper col-md-12 col-lg-6" >
+      <a [routerLink]="['/user/songs/create']" >
+        <i class="flaticon-playlist-3" style="margin-left: 300px; color: chocolate; width: 100px">  Create</i></a>
+    </div>
+  </div>
+</div>
+
+<div class="album_inner_list auti m24_cover" style="padding-top: 10px">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-12">
+        <div class="album_list_wrapper2">
+          <div class="lang_apply_btn home_btn m24_cover" style="padding-bottom: 20px;padding-top: -10px">
+                <a (click)="getInforSong(songs[0])">Play all</a>
+          </div>
+          <div class="album_list_wrapper album_list_wrapper_shop">
+            <ul class="album_list_name m24_cover">
+              <li>#</li>
+              <li class="song_title_width">Song Title</li>
+              <li class="song_title_width">Artist</li>
+              <li class="text-center">Like</li>
+              <li class="text-center">Edit</li>
+              <li class="text-center">remove</li>
+            </ul>
+            <ul class="album_inner_list_padding" *ngFor="let song of songs; index as i">
+              <li><a style="cursor:pointer;" (click)="getInforSong(song)"><span class="play_no">{{i + 1}}</span><span class="play_hover"><i
+                class="flaticon-play-button"></i></span></a></li>
+              <li class="song_title_width">
+                <div class="top_song_artist_wrapper">
+                  <img src="{{song.imageUrl}}" alt="img">
+                  <div class="top_song_artist_contnt">
+                    <h1><a [routerLink]="['/user/songs/comments/',song.id]">{{song.nameSong}}</a></h1>
+                    <p class="various_artist_text"><a>{{song.author}}</a></p>
+                  </div>
+                </div>
+              </li>
+              <li class="song_title_width"><a href="#">{{song?.artist?.nameArtist}}</a></li>
+              <li class="text-center top_song_artist_playlist">{{song.likes}}</li>
+              <li class="text-center top_song_artist_playlist">
+                <a [routerLink]="['/user/songs/edit',song.id]"> Edit</a>
+              </li>
+              <li class="text-center cancel_times"><a type="button" (click)="deleteSong(song.id)" ><i
+                class="fas fa-times-circle"></i></a></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<div id="sidebar" class="bounce-to-right">
+  <div id="toggle_close" (click)="closeSidebar()">×</div>
+  <div id='cssmenu'>
+    <a routerLink="/"><img src="assets/images/mylogo.png" alt="logo"></a>
+    <ul class="sidebb">
+
+      <li><a routerLink="/user/allplaylists"><i class="flaticon-album"></i>All Playlists</a>
+      </li>
+      <li><a routerLink="/user/allartists"><i class="flaticon-playlist-3"></i>All Artists</a>
+      </li>
+      <li><a routerLink="/user/allsongs"><i class="flaticon-clock"></i>All songs</a>
+      </li>
+      <li><a *ngIf="currentUser" routerLink="/user/yoursongs"><i class="flaticon-playlist-1"></i>My Songs</a>
+<!--        <ul>-->
+<!--          <li><a routerLink="/user/yoursongs"><i class="flaticon-download"></i>Your songs</a></li>-->
+<!--          <li><a routerLink="/user/yourplaylists"><i class="flaticon-heart"></i>Your playlists</a></li>-->
+<!--        </ul>-->
+      </li>
+      <li><a *ngIf="currentUser" routerLink="/user/yourplaylists"><i class="flaticon-playlist"></i>My Playlists</a>
+      <li><a *ngIf="currentUser" routerLink="/user/artists/create"><i class="flaticon-playlist-3"></i>Create Artist</a>
+<!--        <ul>-->
+<!--          <li><a href="blog_categories.html"><i class="flaticon-vinyl"></i>blog category I</a></li>-->
+<!--          <li>-->
+<!--            <a href="blog_category2.html"> <i class="flaticon-album"></i>blog category II</a>-->
+<!--          </li>-->
+<!--          <li>-->
+<!--            <a href="blog_single.html"> <i class="flaticon-globe"></i>blog single</a>-->
+<!--          </li>-->
+<!--        </ul>-->
+      </li>
+      <li><a routerLink="/user/contact"><i class="flaticon-internet"></i>contact us</a></li>
+    </ul>
+<!--    <div class="lang_apply_btn">-->
+<!--      <ul>-->
+<!--        <li>-->
+<!--          <a> <i class="flaticon-play-button"></i>create</a>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--    </div>-->
+  </div>
+</div>
+

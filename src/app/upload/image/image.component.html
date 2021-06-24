@@ -1,0 +1,13 @@
+  <div>
+    <input ngNativeValidate  class="form-control" type="file" (change)="onFileChanged($event)" required="required">
+    <div style="margin-bottom: 10px; margin-top: 10px ">
+      <button (click)="onUpload()" class="button_like_a" type="button"
+              *ngIf="selectedFile && checkUploadAvatar" style="margin-right: 10px">Upload Image</button>
+<!--      <button #inputImage class="button_like_a" (click)="removeImage()"  style="margin-right: 20px; background: #ff3b1b">Reset</button>-->
+      <p *ngIf="!checkUploadAvatar" style="color: red">Uploaded file is not in the correct format</p>
+<!--      <p *ngIf="!selectedFile" style="color: red">No file of correct format selected</p>-->
+    </div>
+    <div id="yourImage" *ngIf="downloadURL" style="margin-bottom: 10px; margin-top: 10px">
+      <img [src]="downloadURL" style="width: 300px; height: auto">
+    </div>
+  </div>

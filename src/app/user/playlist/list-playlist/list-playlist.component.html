@@ -1,0 +1,59 @@
+<div class="indx_title_main_wrapper">
+  <div class="title_img_overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="indx_title_left_wrapper m24_cover">
+          <h2>All Playlists</h2>
+          <ul>
+            <li><a routerLink="/">Home</a></li>
+<!--            <li>All Songs In Playlist</li>-->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row" style="text-align: center">
+  </div>
+</div>
+<div class="album_inner_list auti m24_cover">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-12">
+        <div class="album_list_wrapper2">
+          <div class="album_list_wrapper album_list_wrapper_shop">
+            <ul class="album_list_name m24_cover">
+              <li>#</li>
+              <li class="song_title_width">Playlist</li>
+              <li class="song_title_width">Name Playlist</li>
+              <li class="text-center">Views</li>
+              <li class="text-center">Likes</li>
+              <li class="text-center">Songs</li>
+            </ul>
+            <ul class="album_inner_list_padding" *ngFor="let playlist of playlists| slice: (page-1) * pageSize : (page-1) * pageSize + pageSize; index as i">
+              <li>{{i + 1}}</li>
+              <li class="song_title_width">
+                <div class="top_song_artist_wrapper">
+                  <a [routerLink]="['/user/playlistSong/',playlist.id]"><img src="{{playlist.image}}" alt="img" ></a>
+                </div>
+              </li>
+              <li class="song_title_width"><a [routerLink]="['/user/playlistSong/',playlist.id]">{{playlist.namePlaylist}}</a></li>
+              <li class="text-center"><a>{{playlist.views}}</a></li>
+              <li class="text-center"><a>{{playlist.likes}}</a></li>
+              <li class="text-center">
+                <a [routerLink]="['/user/playlistSong/',playlist.id]">{{playlist.songs.length}} Tracks</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div style="margin: auto">
+        <ngb-pagination [collectionSize]="playlists.length" [(page)]="page" [maxSize]="5" [rotate]="true"
+                        [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+      </div>
+    </div>
+  </div>
+
+</div>
